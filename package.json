@@ -1,0 +1,22 @@
+{
+  "name": "@geshengming/create-nest-app",
+  "version": "1.0.3",
+  "description": "Easy to create a nest app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "create-nest-app": "./index.js"
+  },
+  "keywords": [
+    "cli",
+    "nestjs"
+  ],
+  "author": "geshengming",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^4.0.1",
+    "readline-sync": "^1.4.10"
+  }
+}
