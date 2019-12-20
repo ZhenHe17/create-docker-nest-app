@@ -1,6 +1,6 @@
 {
   "name": "@geshengming/create-nest-app",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Easy to create a nest app",
   "main": "index.js",
   "scripts": {
