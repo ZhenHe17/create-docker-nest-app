@@ -1,10 +1,10 @@
 ### Create Nest App
 
-Easy to create a nest app
+CLI tool for creating a nest app
 
 ### Usage
 ``` bash
-npm i @geshengming/create-nest-app -g
-create-nest-app my-app
+npm i create-docker-nest-app -g
+cdna my-app
 ```
   

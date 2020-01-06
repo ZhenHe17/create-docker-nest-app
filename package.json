@@ -1,17 +1,17 @@
 {
-  "name": "@geshengming/create-nest-app",
-  "version": "1.0.6",
-  "description": "Easy to create a nest app",
+  "name": "create-docker-nest-app",
+  "version": "1.0.3",
+  "description": "CLI tool for creating a nest app",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ZhenHe17/create-nest-app.git"
+    "url": "git+https://github.com/ZhenHe17/create-docker-nest-app.git"
   },
   "bin": {
-    "create-nest-app": "./index.js"
+    "cdna": "./index.js"
   },
   "keywords": [
     "cli",
@@ -23,6 +23,7 @@
     "chalk": "^3.0.0",
     "commander": "^4.0.1",
     "download-git-repo": "^3.0.2",
+    "ejs": "^3.0.1",
     "readline-sync": "^1.4.10"
   }
 }
