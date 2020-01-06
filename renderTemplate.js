@@ -3,18 +3,34 @@ const fs = require('fs')
 const chalk = require('chalk')
 const path = require('path')
 
+function delDir(path){
+    let files = [];
+    if(fs.existsSync(path)){
+        files = fs.readdirSync(path);
+        files.forEach((file, index) => {
+            let curPath = path + "/" + file;
+            if(fs.statSync(curPath).isDirectory()){
+                delDir(curPath); //递归删除文件夹
+            } else {
+                fs.unlinkSync(curPath); //删除文件
+            }
+        });
+        fs.rmdirSync(path);
+    }
+}
+
 function renderTemplate({targetFoldName, selectedArr, selectedObj}) {
-    const readDir = (entry) => {
+    const readDirAndRender = (entry) => {
         const dirInfo = fs.readdirSync(entry);
         dirInfo.forEach(item=>{
             const location = path.join(entry,item);
             const info = fs.statSync(location);
             if(info.isDirectory()){
                 // console.log(`dir:${location}`);
-                readDir(location);
+                readDirAndRender(location);
             }else{
                 // console.log(`file:${location}`);
-                ejs.renderFile(location, selectedObj, {}, function(err, str){
+                ejs.renderFile(location, { keepReadme: false, ...selectedObj }, {}, function(err, str){
                     const notEmpty = /\S/.test(str)
                     if (notEmpty) {
                         const data = new Uint8Array(Buffer.from(str));
@@ -31,7 +47,14 @@ function renderTemplate({targetFoldName, selectedArr, selectedObj}) {
         })
     }
     const entry = `./${targetFoldName}`
-    readDir(entry)
+    if (!selectedObj.MongoDB) {
+        delDir(`${entry}/src/cats`)
+        delDir(`${entry}/src/database`)
+    }
+    if (!selectedObj.MySQL) {
+        delDir(`${entry}/src/photo`)
+    }
+    readDirAndRender(entry)
     console.log('')
     console.log(chalk.green('项目创建成功！'))
     console.log('')

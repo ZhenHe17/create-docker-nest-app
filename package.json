@@ -1,6 +1,6 @@
 {
   "name": "create-docker-nest-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "CLI tool for creating a nest app",
   "main": "index.js",
   "scripts": {
